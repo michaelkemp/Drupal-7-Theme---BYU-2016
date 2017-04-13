@@ -1,0 +1,70 @@
+.search-results-container, .spelling-suggestions {
+   max-width: 700px;
+   margin: 0 auto;
+ 
+}
+.search-results {
+   list-style: none;
+   padding: 0px;
+}
+
+.search-result .title a  {
+  font-family: "Vitesse A", "Vitesse B", Georgia, serif;
+   
+   text-decoration: none;
+   font-weight: 300;
+   font-size: 30px;
+   word-wrap: break-word;
+   line-height: 40px;
+}
+
+.spelling-suggestions .form-item dt {
+   float:left;
+   padding-right:5px;
+}
+.spelling-suggestions {
+    font-size:20px;
+}
+
+.search-results-container ul.pager {
+display:table;
+margin-right:auto;
+margin-left:auto;
+}
+
+.search-results-container ul.pager .pager-current {
+ padding:10px 15px;
+ color:white;
+ background-color:#036;
+}
+
+.search-results-container ul.pager li {
+ padding:0px;
+ margin:0px;
+ display:inline-block;
+}
+
+.search-results-container ul.pager li a {
+   border-radius:0px;
+   border:0px;
+   padding:10px 15px;
+   font-weight:400;
+}
+
+.spelling-suggestions .form-item {
+    margin-bottom:0px;
+    margin-top:20px;
+}
+
+.search-results-container .search-noresults {
+    margin-top:20px;
+}
+
+@media screen and (max-width:768px) {
+    .search-results-container ul.pager .pager-first,
+    .search-results-container ul.pager .pager-last,
+    .search-results-container ul.pager .pager-item,
+    .search-results-container ul.pager .pager-current  {
+        display:none;                             
+    }
+}

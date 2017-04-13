@@ -1,0 +1,66 @@
+name                        = 2016 BYU Drupal Theme
+description                 = A simple BOOTSTRAP[3.3.7] based theme with hero, sidebars, content, and footer regions
+core                        = 7.x
+version                     = 2.80
+engine                      = phptemplate
+screenshot                  = screenshot.png
+
+; standard theme features - Removed in theme-settings.php
+features[]                  = name
+features[]                  = slogan
+
+; theme setting defaults - Can be changed in theme appearance settings
+settings[main_title]        = "Site Title"
+settings[sub_title]         = "Site Subtitle"
+settings[sub_title_use]     = 0
+settings[sub_title_above]   = 0
+settings[sub_title_italic]  = 0
+settings[search_use]        = 1
+settings[search_url]        = "/search/node"
+settings[menu_count]        = 6
+settings[add_login]         = 0
+settings[login_text]        = "::fa-user-circle-o:: SIGN IN"
+settings[login_link]        = "/user/login"
+settings[logout_text]       = "::fa-user-circle:: SIGN OUT"
+settings[logout_link]       = "/user/logout"
+settings[foot_region_cnt]   = 4
+settings[foot_area1_title]  = "Contact Info"
+settings[foot_area1_body]   = ""
+settings[foot_area2_title]  = "Helpful Links"
+settings[foot_area2_body]   = ""
+settings[foot_area3_title]  = "Related Services"
+settings[foot_area3_body]   = ""
+settings[foot_area4_title]  = "Connect With Us"
+settings[foot_area4_body]   = ""
+settings[site_map_add]      = 1
+settings[site_map_text]     = "Site Map"
+settings[site_map_url]      = "/site-map"
+settings[icon_directory]    = "default"
+settings[facebook_app_id]   = ""
+settings[full_font_package] = 0
+settings[byu_bootstrap_css] = 0
+settings[page_title]        = 0
+settings[layout282]         = ""
+settings[layout444]         = ""
+settings[layout282ct]       = ""
+settings[layout444ct]       = ""
+
+; theme stylesheets and javascript
+stylesheets[all][]          = css/style.css
+stylesheets[all][]          = css/search-results.css
+scripts[]                   = js/script.js
+
+; available theme block regions
+regions[hero]               = Hero Image
+regions[fullwidth]          = Full Width
+regions[help]               = Help
+regions[ten-column]         = Ten Column Area
+regions[content-head]       = Content Head
+regions[content]            = Content
+regions[content-foot]       = Content Foot
+regions[lhs]                = LHS sidebar
+regions[rhs]                = RHS sidebar
+regions[eight-column]       = Eight Column Area
+regions[footer]             = Footer
+regions[bottom]             = Page bottom
+

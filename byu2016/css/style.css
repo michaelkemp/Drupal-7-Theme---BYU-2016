@@ -1,0 +1,777 @@
+html,body {
+  height: 100%; 
+  margin: 0; padding: 0;
+}
+
+body {
+    font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;       
+    font-weight:400; 
+    font-style:normal;
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif; 
+}
+
+#hero {
+    padding:0;
+    margin:0;
+}
+
+/* ================================== CONTENT FLEX ================================== */ 
+#page-content-columm {
+  display: flex;
+  flex-direction: column; 
+}  
+#content-head,
+#content,
+#content-foot {
+  flex: 1 0 auto;
+}  
+
+/* ================================== FLAT BUTTON ================================== */  
+.button-small {
+    color: rgba(255,255,255,1.0);
+    background-color: rgba(128,128,128,1.0);
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    text-shadow: none;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.button-small:hover, .button-small:active {
+    color: rgba(255,255,255,1.0);
+    background-color: rgba(96,96,96,1.0);
+}
+.button-small:focus {
+    outline:0;
+}
+
+
+/* ================================== DESKTOP HEADER STYLES ================================== */
+.byu2016-top-header .navbar {
+    margin:0;
+    padding:0;
+    border:none;
+    border-radius: 0px;
+}
+
+.byu2016-header-desktop {
+    min-height: 55px;
+    margin: 0;
+    background-color: #002E5D;
+    border-radius: 0px;
+}
+
+.title-container a, .title-container a:hover {
+    text-decoration:none;
+}
+
+/* ================= FLEXBOX - HEADER ================= */
+.byu2016-header-desktop-container {
+    display: flex;
+}
+.byu2016-header-desktop-site {
+    flex:1;
+}
+.byu2016-header-desktop-menu-search {
+    flex: none;
+    display: flex;
+}
+/* ================= FLEXBOX - SITE ================= */
+.byu2016-header-desktop-site {
+    display: flex;
+}
+.byu2016-header-desktop-site .logo-container {
+    flex:none;
+}
+.byu2016-header-desktop-site .title-container {
+    flex:1;
+}
+/* ================= FLEXBOX - LOGO ================= */
+.byu2016-header-desktop-site .title-container {
+    display: inline-flex;
+    flex-flow: row wrap;
+}
+.byu2016-header-desktop-site .title-container-flex {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+/* ================= LOGO ================= */
+.byu2016-header-desktop-site .logo-container {
+    margin-top: 10px;
+}
+.byu2016-header-desktop-site .logo-container img {
+    height: 35px;
+    width: 121px;
+    margin-top: -1px;
+}
+.byu2016-header-desktop-site .title-container {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    min-height: 35px;
+}
+.byu2016-header-desktop-site .title-container a,
+.byu2016-header-desktop-site .title-container a:hover {
+    text-decoration: none;
+}
+
+.byu2016-header-desktop-site .site-name {
+    color: #fff;
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif;             
+    font-weight:400; 
+    font-style:normal;
+    font-size: 20px;
+    line-height: 22px;
+    margin-top: -3px;
+}
+.byu2016-header-desktop-site .sub-title {
+    color: #fff;
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif;             
+    font-weight:400; 
+    font-style:normal;
+    font-size: 13px;
+    line-height: 13px;
+}
+.byu2016-header-desktop-site .sub-title-italic {
+    color: #fff;
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif;             
+    font-weight:400; 
+    font-style:italic;
+    font-size: 13px;
+    line-height: 13px;
+}
+.byu2016-header-desktop-site .sub-title-above {
+    margin-top: -1px;
+    margin-bottom: 4px;
+}
+.byu2016-header-desktop-site .sub-title-below {
+    margin-top: 1px;
+    margin-bottom: 0px;
+}
+
+/* ================= SEARCH ================= */
+.byu2016-header-desktop-search, 
+.byu2016-header-desktop-search .byu2016-search-form, 
+.byu2016-header-desktop-search .byu2016-search-text,
+.byu2016-header-desktop-search .byu2016-search-button {
+    display: flex;
+}
+.byu2016-header-desktop-search .byu2016-search-form {
+    height: 40px;
+    padding-top: 14px;
+}
+.byu2016-header-desktop-search .byu2016-search-text input[type=text] {
+    width: 120px;
+    height: 27px;
+    font-size: 14px;
+    border: none;
+    padding: 0px 0px 0px 10px;
+    margin: 0px;
+    border-radius: 0px;
+}
+.byu2016-header-desktop-search .byu2016-search-button button {
+    width: 27px;
+    height: 27px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+/* ================= MENU ================= */
+.byu2016-header-desktop-menu {
+    padding-top: 4px;
+    height: 40px;
+    margin: 0px 10px 0px 5px;
+}
+.byu2016-header-desktop-menu .menu-parent>a {
+    height: 40px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 12px;
+    padding: 13px 10px 0px 10px;
+    text-decoration: none;
+    background-color: transparent;
+    vertical-align: middle;
+}
+.byu2016-header-desktop-menu .menu-parent>a .fa {
+    font-size: 2em;
+    vertical-align: middle;
+    padding: 0px 5px;
+    margin-top: -3px;
+}
+.byu2016-header-desktop-menu .menu-parent>a:hover {
+    text-decoration: underline;
+    background-color: transparent;
+}
+.byu2016-header-desktop-menu .menu-parent>a:active,
+.byu2016-header-desktop-menu .menu-parent>a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+.byu2016-header-desktop-menu .open>a:active,
+.byu2016-header-desktop-menu .open>a:focus {
+    text-decoration: none;
+    background-color: #fff;
+    color: #002E5D;
+}
+.byu2016-header-desktop-menu .dropdown-menu {
+    border: none;
+}
+
+/* ================================== DESKTOP MAIN MENU STYLES ================================== */
+.byu2016-main-menu-desktop {
+    height: 40px;
+    min-height: 40px;
+    margin: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc !important;
+}
+
+/* ================= FLEXBOX - MENU ================= */
+.byu2016-main-menu-desktop-menu {
+    display: flex;
+}
+.byu2016-main-menu-desktop-menu li{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    min-width: 0;
+}
+
+/* ================= MENU ================= */
+.byu2016-main-menu-desktop-menu .main-menu-overflow {
+    overflow: visible;
+}
+.byu2016-main-menu-desktop-menu {
+    min-height: 40px;
+    margin:0;
+    padding:0;
+    width: 100%;
+}
+.byu2016-main-menu-desktop-menu li{
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.byu2016-main-menu-desktop-menu li>a{
+    height: 39px;
+    color: #002E5D;
+    padding: 11px 8px 10px 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.byu2016-main-menu-desktop-menu .menu-parent>a .fa {
+    font-size: 2em;
+    vertical-align: middle;
+    padding: 0px 5px;
+    margin-top: -3px;
+}
+.byu2016-main-menu-desktop-menu >li>a:hover,
+.byu2016-main-menu-desktop-menu >li.active>a:hover,
+.byu2016-main-menu-desktop-menu li.menu-child>a:hover,
+.byu2016-main-menu-desktop-menu li.menu-child.active>a:hover {
+    text-decoration: none;
+    color: #002E5D;
+    background-color: #dddddd;
+    background-image: none;
+}
+.byu2016-main-menu-desktop-menu >li.active>a,
+.byu2016-main-menu-desktop-menu .menu-child.active>a  {
+    text-decoration: none;
+    color: #002E5D;
+    background-color: #eeeeee;
+    background-image: none;
+}
+
+
+/* ================================== MOBILE HEADER STYLES ================================== */
+
+.byu2016-header-mobile {
+    min-height: 55px;
+    margin: 0;
+    background-color: #002E5D;
+}
+
+.byu2016-search-mobile {
+    min-height: 0px;
+}
+
+/* ================= FLEXBOX - HEADER ================= */
+.byu2016-header-mobile-container {
+    display: flex;
+}
+.byu2016-header-mobile-site {
+    flex:1;
+}
+.byu2016-header-mobile-menu {
+    flex: none;
+}
+/* ================= FLEXBOX - SITE ================= */
+.byu2016-header-mobile-site {
+    display: flex;
+}
+.byu2016-header-mobile-site .logo-container {
+    flex:none;
+}
+.byu2016-header-mobile-site .title-container {
+    flex:1;
+}
+/* ================= FLEXBOX - LOGO ================= */
+.byu2016-header-mobile-site .title-container {
+    display: inline-flex;
+    flex-flow: row wrap;
+}
+.byu2016-header-mobile-site .title-container-flex {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+/* ================= FLEXBOX - SEARCH ================= */
+.byu2016-header-mobile-search .byu2016-search-form {
+    display: flex;
+}
+.byu2016-header-mobile-search .byu2016-search-form .byu2016-search-button {
+    flex:none;
+}
+.byu2016-header-mobile-search .byu2016-search-form .byu2016-search-text {
+    flex:1;
+}
+
+
+
+/* ================= LOGO ================= */
+.byu2016-header-mobile-site .logo-container {
+    margin-top: 10px;
+}
+.byu2016-header-mobile-site .logo-container img {
+    height: 35px;
+    width: 121px;
+}
+.byu2016-header-mobile-site .title-container {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    min-height: 35px;
+}
+
+.byu2016-header-mobile-site .site-name {
+    color: #fff;
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif;             
+    font-weight:400; 
+    font-style:normal;
+    font-size: 20px;
+    line-height: 22px;
+    margin-top: -3px;
+}
+.byu2016-header-mobile-site .sub-title {
+    color: #fff;
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif;             
+    font-weight:400; 
+    font-style:normal;
+    font-size: 13px;
+    line-height: 13px;
+}
+.byu2016-header-mobile-site .sub-title-italic {
+    color: #fff;
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif;             
+    font-weight:400; 
+    font-style:italic;
+    font-size: 13px;
+    line-height: 13px;
+}
+.byu2016-header-mobile-site .sub-title-above {
+    margin-top: -1px;
+    margin-bottom: 3px;
+}
+.byu2016-header-mobile-site .sub-title-below {
+    margin-top: 1px;
+    margin-bottom: 0px;
+}
+
+/* ================= MENU BUTTON ================= */
+.byu2016-header-mobile-menu-button {
+    padding: 7px 0px 0px 10px
+    margin: 10px 0px 10px 10px;
+}
+.byu2016-header-mobile-menu-button button { 
+    width: 30px;
+    height: 30px;
+    font-size: 26px;
+    padding: 1px 5px;
+    margin: 0;    
+    color: #fff; 
+    float:none; 
+}
+
+/* ================= MENU ================= */
+.byu2016-combined-menu-mobile {
+    min-height:0px; 
+    margin-bottom:0px;
+    border: none;
+}
+.byu2016-header-mobile-combined-menu {
+    margin: 0px 0px 20px 0px;
+}
+.byu2016-header-mobile-combined-menu li {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.byu2016-header-mobile-combined-menu li>a {
+    color: #002E5D;
+}
+.byu2016-header-mobile-combined-menu >li>a:hover,
+.byu2016-header-mobile-combined-menu >li.active>a:hover {
+    text-decoration: none;
+    background-color: #dddddd;
+}
+.byu2016-header-mobile-combined-menu >li.active>a {
+    text-decoration: none;
+    background-color: #eeeeee;
+}
+
+
+.byu2016-header-mobile-combined-menu .user-menu {
+    background-color: #002E5D;
+    color: #fff;
+}
+.byu2016-header-mobile-combined-menu .user-menu a  {
+    color: #fff;
+}
+.byu2016-header-mobile-combined-menu .user-menu a:hover  {
+    background-color: #002E5D;
+    text-decoration: underline;
+}
+
+
+.byu2016-header-mobile-combined-menu .menu-parent {
+    padding-left: 0px;
+}
+.byu2016-header-mobile-combined-menu .menu-parent>p {
+    margin:0px;
+    padding: 10px 15px;
+}
+.byu2016-header-mobile-combined-menu .menu-parent>a .fa {
+    font-size: 2em;
+    vertical-align: middle;
+    padding: 0px 5px;
+    margin-top: -3px;
+}
+
+.byu2016-header-mobile-combined-menu .menu-child {
+    padding-left: 30px;
+}
+
+/* ================= SEARCH ================= */
+.byu2016-header-mobile-search .byu2016-search-form {
+    height: 40px;
+    min-height: 40px;
+    border:none;
+    margin:0;
+    padding:0;
+}
+.byu2016-header-mobile-search .byu2016-search-text input[type=text] {
+    width:100%;
+    height:40px;
+    margin:0;
+    padding:0;
+    padding-left: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0px;
+}
+.byu2016-header-mobile-search .byu2016-search-button button {
+    width:58px;
+    height:40px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0px;
+}
+.byu2016-header-mobile-search .byu2016-search-button button .fa{
+    font-size:1.5em;
+}
+
+
+/* ===================== NEW 2016 BYU STYLE FOOTER ===================== */
+#page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; 
+}  
+#flex-body {
+  flex: 1 0 auto;
+}  
+#header,
+#footer
+ {
+   flex-shrink: 0; 
+}
+
+.byu2016-footer-div { 
+    margin-top: 30px;
+    width:100%; 
+    height: auto; 
+    background-color: rgb(229, 229, 229);
+}
+.byu2016-footer-div-site-wrapper {
+    padding-top: 30px;
+}
+.byu2016-footer-site-block h2 {
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif;
+    text-transform: uppercase;
+    color: #002E5D; 
+    font-size: 20px;
+    border-bottom: 1px solid #aaa;
+    padding-bottom:10px;
+    white-space: nowrap;
+}
+.byu2016-footer-site-block a {
+    color: #888;
+}
+.byu2016-footer-site-block a~br {
+    line-height: 30px;
+}
+.byu2016-footer-site-block .content {
+    padding-top: 10px;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.byu2016-footer-site-block u strong em, 
+.byu2016-footer-site-block u em strong, 
+.byu2016-footer-site-block strong em u, 
+.byu2016-footer-site-block strong u em, 
+.byu2016-footer-site-block em u strong, 
+.byu2016-footer-site-block em strong u {
+	font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    color: #002E5D;
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.byu2016-footer-site-block a u strong em, 
+.byu2016-footer-site-block a u em strong, 
+.byu2016-footer-site-block a strong em u, 
+.byu2016-footer-site-block a strong u em, 
+.byu2016-footer-site-block a em u strong, 
+.byu2016-footer-site-block a em strong u {
+    margin-top: 15px;
+	font-size: 18px;
+    font-style: normal;
+    font-weight: 100;
+    color: #FFF;
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif;
+    padding:8px 16px;
+    background-color: #777;
+    text-decoration: none;
+    display: inline-block;
+    text-align:center;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    white-space: nowrap;
+}
+
+.byu2016-footer-site-block a:hover u strong em, 
+.byu2016-footer-site-block a:hover u em strong, 
+.byu2016-footer-site-block a:hover strong em u, 
+.byu2016-footer-site-block a:hover strong u em, 
+.byu2016-footer-site-block a:hover em u strong, 
+.byu2016-footer-site-block a:hover em strong u {
+    background-color: #555;
+}
+
+.byu2016-footer-div .fa { 
+    color: #002E5D;
+    font-size: 25px;
+    line-height: 40px;
+    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 4px 4px 0px 0px;
+}
+.byu2016-footer-div .fa:hover { 
+    background-color: #fff;
+}
+
+.byu2016-footer-div-byu {
+    width: 100%;
+    display: block;
+    margin: 40px 0px 0px 0px;
+    text-align: center;
+    color: #fff;   
+    background-color: rgb(0, 46, 93);            
+}
+.byu2016-footer-byu-logo {
+    padding: 7px 0px 3px 0px;
+}
+.byu2016-footer-byu-logo img {
+    width: 380px;
+    height:33.6px;
+}
+.byu2016-footer-byu-logo-stacked img {
+    width:95%;
+    max-width: 300px;
+    max-height: 90px;
+    margin:0px;
+}
+.byu2016-footer-site-block a:hover {
+    text-decoration:none;
+    color: #002E5D;   
+}
+
+.byu2016-footer-byu-copyright {
+    color: #fff;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 200;
+    padding: 0px 0px 10px 0px;
+}
+#byu2016-footer-tagline a {
+    text-decoration: none;
+    color: #fff;
+}
+#byu2016-footer-tagline a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* ================================== MEDIA QUERIES ================================== */
+.byu2016-header-desktop                    { display: block; }
+.byu2016-main-menu-desktop              { display: block; } 
+.byu2016-header-mobile                      { display: none; }
+.byu2016-combined-menu-mobile        { display: none; }
+.byu2016-search-mobile                      { display: none; } 
+
+.byu2016-footer-byu-logo                  { display: block; } 
+.byu2016-footer-byu-logo-stacked  { display: none; }
+ 
+@media (max-width: 767px) {
+    .byu2016-header-desktop             { display: none; }
+    .byu2016-main-menu-desktop       { display: none; } 
+    .byu2016-header-mobile               { display: block; }
+    .byu2016-combined-menu-mobile { display: block;}
+    .byu2016-search-mobile               { display: block; } 
+}
+@media (max-width: 991px) {
+    .byu2016-main-menu-desktop-menu li { font-size: 12px; }   
+}
+@media (max-width: 480px) {
+    .byu2016-header-mobile {
+        min-height: 46px;
+    }
+    .byu2016-header-mobile-site .logo-container img {
+        height: 25px;
+        width: 87px;
+    }
+    .byu2016-header-mobile-site .title-container {
+        min-height: 25px;
+    }    
+    
+    .byu2016-header-mobile-site .site-name {
+        font-size: 16px;
+        line-height: 18px;
+    }    
+    .byu2016-header-mobile-site .sub-title {
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .byu2016-header-mobile-site .sub-title-italic {
+        font-size: 12px;
+        line-height: 12px;
+    }    
+    
+}
+@media (max-width: 480px) {
+    .byu2016-footer-byu-logo                  { display: none; } 
+    .byu2016-footer-byu-logo-stacked  { display: block; }
+    
+}
+
+/* THEME UPDATES APRIL 2017 */
+
+.byu2016-main-menu-desktop-menu, .byu2016-top-header li>a, .byu2016-top-header li>p {
+    font-weight: 500;
+}
+.byu2016-top-header .dropdown-menu>li>a {
+    color: #002e5d;
+}
+.byu2016-top-header .dropdown-menu>li>a:hover {
+    color: #002e5d;
+}
+.byu2016-footer-site-block h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+}
+
+.byu2016-footer-div .fa {
+    width: 25px;
+    height: auto;
+    color: inherit;
+    border: 0;
+}
+.byu2016-footer-div .fa:hover {
+    background: none;
+}
+.byu2016-footer-div .fa-facebook-official, .byu2016-footer-div .fa-facebook-square, .byu2016-footer-div .fa-facebook {
+    color: #3b5998;
+}
+.byu2016-footer-div .fa-twitter, .byu2016-footer-div .fa-twitter-square {
+    color: #1da1f2;
+}
+.byu2016-footer-div .fa-instagram {
+    color: #231F20;
+}
+.byu2016-footer-div .fa-rss, .byu2016-footer-div .fa-rss-square {
+    color: #f26522;
+}
+.byu2016-footer-div .fa-youtube, .byu2016-footer-div .fa-youtube-play, .byu2016-footer-div .fa-youtube-square {
+    color: #cd201f;
+}
+.byu2016-footer-div .fa-pinterest, .byu2016-footer-div .fa-pinterest-p, .byu2016-footer-div .fa-pinterest-square {
+    color: #bd081c;
+}
+.byu2016-footer-div .fa-google-plus-official, .byu2016-footer-div .fa-google-plus, .byu2016-footer-div .fa-google-plus-square {
+    color: #dd4b39;
+}
+.byu2016-footer-div .fa-snapchat, .byu2016-footer-div .fa-snapchat-ghost, .fa-snapchat-square {
+    color: #000000;
+}
+.byu2016-footer-div .fa-linkedin, .byu2016-footer-div .fa-linkedin-square {
+    color: #0077b5;
+}
+.byu2016-footer-div .fa-trello {
+    color: #0079bf;
+}
+.byu2016-footer-div .fa-slack {
+    color: #2D333A;
+}
+
+.byu2016-footer-byu-logo img {
+    width: 450px;
+    height: 40px;
+}
+
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
