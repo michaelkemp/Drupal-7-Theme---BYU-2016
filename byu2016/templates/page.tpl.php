@@ -243,10 +243,10 @@
             
             <div class='byu2016-footer-div-byu'>
                 <div class='byu2016-footer-byu-logo'>
-                    <a href='http://byu.edu/'><img src='/<?php print $directory ?>/images/wordmark-inline.svg'></img></a>
+                    <a href='http://byu.edu/'><img src='/<?php print $directory ?>/images/footer-wordmark-inline.svg'></img></a>
                 </div>
                 <div class='byu2016-footer-byu-logo-stacked'>
-                    <a href='http://byu.edu/'><img src='/<?php print $directory ?>/images/wordmark-stacked.svg'></img></a>
+                    <a href='http://byu.edu/'><img src='/<?php print $directory ?>/images/footer-wordmark-stacked.svg'></img></a>
                 </div>
                 <div class='byu2016-footer-byu-copyright'>
                     <?php 
