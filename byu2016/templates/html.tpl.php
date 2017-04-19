@@ -18,6 +18,7 @@
     
 </head>
 <body>
+    <div id="skip-to-main-content"><a href="#main-content">Skip to Main Content</a></div>
     <?php print $page_top; ?>
     <?php print $page; ?>
     <?php print $page_bottom; ?>

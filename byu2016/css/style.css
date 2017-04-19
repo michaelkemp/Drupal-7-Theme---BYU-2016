@@ -14,6 +14,40 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Vitesse A", "Vitesse B", Georgia, serif; 
 }
 
+#skip-to-main-content a { 
+    position:absolute; 
+    left:-999px; 
+    top:auto; 
+    width:1px; 
+    height:1px; 
+    overflow:hidden;
+    z-index:-999;
+} 
+ 
+#skip-to-main-content a:focus, #skip-to-main-content a:active { 
+    color: #fff;
+    background-color:#002E5D;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: auto;
+    overflow:auto;
+    margin: 5px auto;
+    padding:5px;
+    border:2px solid white;
+    text-align:center;
+    font-size:1.1em;
+    text-decoration: none;
+    box-shadow:5px 5px 5px rgba(0,0,0,0.6);
+    z-index:999;
+} 
+
+.header-title-link {
+    display: flex;
+    width: 100%;
+}
+
 #hero {
     padding:0;
     margin:0;

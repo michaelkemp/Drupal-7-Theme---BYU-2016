@@ -1,6 +1,5 @@
 <div id="page">
 
-
     <header id="header" class="header byu2016-top-header">
     <!--- ========================================================== BEGIN DESKTOP ========================================================== --->
         <nav class="navbar byu2016-header-desktop">
@@ -100,7 +99,7 @@
     <!--- ========================================================== END MOBILE ========================================================== --->
     </header>
 
-    
+    <a name="main-content"></a>
     <div id="flex-body" class="<?php print $variables["content-url-class"]; ?>">
         <?php if ($page['hero']): ?>    
             <div id="hero"><?php print render($page['hero']); ?></div>
@@ -243,10 +242,10 @@
             
             <div class='byu2016-footer-div-byu'>
                 <div class='byu2016-footer-byu-logo'>
-                    <a href='http://byu.edu/'><img src='/<?php print $directory ?>/images/footer-wordmark-inline.svg'></img></a>
+                    <a href='http://byu.edu/'><img src='/<?php print $directory ?>/images/footer-wordmark-inline.svg' alt='Brigham Young University'></img></a>
                 </div>
                 <div class='byu2016-footer-byu-logo-stacked'>
-                    <a href='http://byu.edu/'><img src='/<?php print $directory ?>/images/footer-wordmark-stacked.svg'></img></a>
+                    <a href='http://byu.edu/'><img src='/<?php print $directory ?>/images/footer-wordmark-stacked.svg' alt='Brigham Young University'></img></a>
                 </div>
                 <div class='byu2016-footer-byu-copyright'>
                     <?php 

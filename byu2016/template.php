@@ -56,12 +56,13 @@ function byu2016_preprocess_page(&$variables) {
         $siteTitle = $title;
     }
     
-    $html = "<div class='logo-container'>";
-    $html.= "<a href='${url}'><img class='site-logo' alt='BYU' src='${byuMark}'></a>";
-    $html.= "</div>";
-    $html.= "<div class='title-container'>";
-    $html.= "<a href='${url}' class='title-container-flex'>${siteTitle}</a>";
-    $html.= "</div>";
+    $printTitle = $myVars["prntTTL"];
+    
+    $html = "";
+    $html.= "<a href='${url}' title='BYU ${printTitle}' class='header-title-link'>";
+    $html.= "<div class='logo-container'><img class='site-logo' alt='BYU' src='${byuMark}'></div>";
+    $html.= "<div class='title-container title-container-flex'>${siteTitle}</div>";
+    $html.= "</a>";
     
     $variables["site_logo"] = $html;
     $variables["main-menu-markup"] = byu2016BootstrapMenu('main-menu',1,true);
@@ -295,6 +296,8 @@ function byu2016GetVars() {
     }
     
     $pageTtl = isset($variables['head_title']) ? $variables['head_title'] : $siteName;
+    
+    $vars["prntTTL"] = $siteSTUse ? $siteTitle . " - " . $siteSbTtl : $siteTitle;
     
     $vars["siteNam"] = $siteName;
     $vars["siteSlo"] = $siteSlog;
