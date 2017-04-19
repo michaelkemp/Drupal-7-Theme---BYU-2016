@@ -54,7 +54,7 @@
                 </div> 
                 <?php if (trim($variables["main-menu-markup"] . $variables["user-menu-markup"] . $variables["add-login"]) != ""): ?>
                     <div class="byu2016-header-mobile-menu-button">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#byu2016-mobile-menu-collapse" aria-expanded="false">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#byu2016-mobile-menu-collapse" aria-expanded="false" aria-label="Main Menu">
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </button>
                     </div>

@@ -204,7 +204,8 @@ function byu2016_form_alter(&$form, &$form_state, $form_id) {
         
         $form['search_block_form']['#theme_wrappers'] = array();
         $form['search_block_form']['#prefix'] = '<div class="' .$textClass. '">';
-        $form['search_block_form']['#attributes']['title'] = '';
+        $form['search_block_form']['#attributes']['title'] = "";
+        $form['search_block_form']['#attributes']['aria-label'] = "Search Box";
         $form['search_block_form']['#attributes']['placeholder'] = "Search";
         $form['search_block_form']['#suffix'] = '</div>';
  
