@@ -1,8 +1,8 @@
 <div id="page">
 
-    <header id="header" class="header byu2016-top-header">
+    <header role="banner" id="header" class="header byu2016-top-header">
     <!--- ========================================================== BEGIN DESKTOP ========================================================== --->
-        <nav class="navbar byu2016-header-desktop">
+        <nav role="navigation" class="navbar byu2016-header-desktop">
             <div class="container byu2016-header-desktop-container">
             
                 <!-- ================= BYU LOGO + SITE TITLE ================= -->
@@ -33,7 +33,7 @@
         </nav>
 
         <?php if (trim($variables["main-menu-markup"]) != ""): ?>
-            <nav class="navbar byu2016-main-menu-desktop">
+            <nav role="navigation" class="navbar byu2016-main-menu-desktop">
                 <div class="container byu2016-main-menu-desktop-container">
                     <!-- ================= DESKTOP MAIN MENU ================= -->
                     <ul class="nav navbar-nav byu2016-main-menu-desktop-menu">
@@ -46,7 +46,7 @@
 
 
     <!--- ========================================================== BEGIN MOBILE ========================================================== --->
-        <nav class="navbar byu2016-header-mobile">
+        <nav role="navigation" class="navbar byu2016-header-mobile">
             <div class="container byu2016-header-mobile-container">
                 <!-- ================= BYU LOGO + SITE TITLE ================= -->
                 <div class="byu2016-header-mobile-site">
@@ -63,7 +63,7 @@
         </nav>
         
         <?php if (trim($variables["main-menu-markup-flat"] . $variables["user-menu-markup-flat"] . $variables["add-login"]) != ""): ?>
-            <nav class="navbar byu2016-combined-menu-mobile">
+            <nav role="navigation" class="navbar byu2016-combined-menu-mobile">
                 <div class="container byu2016-header-mobile-menu">
                     <div class="collapse navbar-collapse" id="byu2016-mobile-menu-collapse">
                         <ul class="nav navbar-nav byu2016-header-mobile-combined-menu">
@@ -89,7 +89,7 @@
         <?php endif; ?>
 
         <?php if (theme_get_setting('search_use') == 1): ?>
-            <nav class="navbar byu2016-search-mobile">
+            <nav role="navigation" class="navbar byu2016-search-mobile">
                 <!-- ================= MOBILE SEARCH FORM ================= -->
                 <div class="byu2016-header-mobile-search">
                     <?php $search = drupal_get_form('search_block_form'); print render($search); ?>
@@ -99,94 +99,96 @@
     <!--- ========================================================== END MOBILE ========================================================== --->
     </header>
 
-    <a name="main-content"></a>
-    <div id="flex-body" class="<?php print $variables["content-url-class"]; ?>">
-        <?php if ($page['hero']): ?>    
-            <div id="hero"><?php print render($page['hero']); ?></div>
-        <?php endif; ?>
-        
-        <?php if ($page['fullwidth']): ?>    
-            <div id="fullwidth"><?php print render($page['fullwidth']); ?></div>
-        <?php endif; ?>
-
-        <!--- ======== DRUPAL HELP and MESSAGES ======== --->
-        <?php if ($page['help']): ?>    
-            <div id="help" class="container"><?php print render($page['help']); ?></div>
-        <?php endif; ?>
-        <?php if (!empty($messages) && user_is_logged_in()) : ?>
-            <div id="messages" class="container"><?php print $messages; ?></div>
-        <?php endif; ?>
-        <!--- ======== DRUPAL HELP and MESSAGES ======== --->
-        
-        <?php
-            if ($page['ten-column']) {
-                print "<div id='ten-col-container' class='container'>";
-                print "    <div id='ten-col-columm' class='col-md-10 col-md-push-1'>";
-                print "        <div id='ten-col-content'>" .render($page['ten-column']). "</div>";            
-                print "    </div>";
-                print "    <div id='one-col-columm-lhs' class='col-md-1 col-md-pull-1'></div>";
-                print "    <div id='one-col-columm-rhs' class='col-md-1'></div>";
-                print "</div>";
-            }
-        ?>
-        
-        <div id="page-content" class="container">
-
-            <div class="row">
-            <?php
-                $push = "";
-                $sbWide = intval($variables["sidebar-columns"]);
-                $conWide = 12;
-                if ($page['lhs']) { $conWide-= $sbWide; $push = "col-md-push-${sbWide}"; }
-                if ($page['rhs']) { $conWide-= $sbWide; }
+    
+    <main role="main">
+        <a name="main-content" aria-label="Main Content"></a>
+        <div id="flex-body" class="<?php print $variables["content-url-class"]; ?>">
+            <?php if ($page['hero']): ?>    
+                <div id="hero"><?php print render($page['hero']); ?></div>
+            <?php endif; ?>
             
-                print "<div id='page-content-columm' class='col-md-${conWide} ${push}'>";
+            <?php if ($page['fullwidth']): ?>    
+                <div id="fullwidth"><?php print render($page['fullwidth']); ?></div>
+            <?php endif; ?>
+
+            <!--- ======== DRUPAL HELP and MESSAGES ======== --->
+            <?php if ($page['help']): ?>    
+                <div id="help" class="container"><?php print render($page['help']); ?></div>
+            <?php endif; ?>
+            <?php if (!empty($messages) && user_is_logged_in()) : ?>
+                <div id="messages" class="container"><?php print $messages; ?></div>
+            <?php endif; ?>
+            <!--- ======== DRUPAL HELP and MESSAGES ======== --->
+            
+            <?php
+                if ($page['ten-column']) {
+                    print "<div id='ten-col-container' class='container'>";
+                    print "    <div id='ten-col-columm' class='col-md-10 col-md-push-1'>";
+                    print "        <div id='ten-col-content'>" .render($page['ten-column']). "</div>";            
+                    print "    </div>";
+                    print "    <div id='one-col-columm-lhs' class='col-md-1 col-md-pull-1'></div>";
+                    print "    <div id='one-col-columm-rhs' class='col-md-1'></div>";
+                    print "</div>";
+                }
+            ?>
+            
+            <div id="page-content" class="container">
+
+                <div class="row">
+                <?php
+                    $push = "";
+                    $sbWide = intval($variables["sidebar-columns"]);
+                    $conWide = 12;
+                    if ($page['lhs']) { $conWide-= $sbWide; $push = "col-md-push-${sbWide}"; }
+                    if ($page['rhs']) { $conWide-= $sbWide; }
                 
-                    if ($page['content-head']) {
-                        print "<div id='content-head' class='content-head'>" .render($page['content-head']). "</div>";
-                    }
+                    print "<div id='page-content-columm' class='col-md-${conWide} ${push}'>";
                     
-                    print "<div id='content'>";
-                        if ((theme_get_setting('page_title') == 1) && ($title)) { print "<h1 class='page-title title' id='page-title'>" .$title. "</h1>"; }
-                        if ($page['content']) { print render($page['content']); } 
+                        if ($page['content-head']) {
+                            print "<div id='content-head' class='content-head'>" .render($page['content-head']). "</div>";
+                        }
+                        
+                        print "<div id='content'>";
+                            if ((theme_get_setting('page_title') == 1) && ($title)) { print "<h1 class='page-title title' id='page-title'>" .$title. "</h1>"; }
+                            if ($page['content']) { print render($page['content']); } 
+                        print "</div>";
+                        
+                        if ($page['content-foot']) {
+                            print "<div id='content-foot' class='content-foot'>" .render($page['content-foot']). "</div>";
+                        }
+                        
                     print "</div>";
                     
-                    if ($page['content-foot']) {
-                        print "<div id='content-foot' class='content-foot'>" .render($page['content-foot']). "</div>";
+                    // SIDEBAR
+                    if ($page['lhs']) {
+                        print "<div id='lhs' class='sidebar-left col-md-${sbWide} col-md-pull-${conWide}'>" .render($page['lhs']). "</div>";
                     }
                     
-                print "</div>";
-                
-                // SIDEBAR
-                if ($page['lhs']) {
-                    print "<div id='lhs' class='sidebar-left col-md-${sbWide} col-md-pull-${conWide}'>" .render($page['lhs']). "</div>";
-                }
-                
-                // SIDEBAR
-                if ($page['rhs']) {
-                    print "<div id='rhs' class='sidebar-right col-md-${sbWide}'>" .render($page['rhs']). "</div>";
-                }
-                
-            ?>
+                    // SIDEBAR
+                    if ($page['rhs']) {
+                        print "<div id='rhs' class='sidebar-right col-md-${sbWide}'>" .render($page['rhs']). "</div>";
+                    }
+                    
+                ?>
+                </div>
             </div>
+            
+            <?php
+                if ($page['eight-column']) {
+                    print "<div id='eight-col-container' class='container'>";
+                    print "    <div id='eight-col-columm' class='col-md-8 col-md-push-2'>";
+                    print "        <div id='eight-col-content'>" .render($page['eight-column']). "</div>";            
+                    print "    </div>";
+                    print "    <div id='two-col-columm-lhs' class='col-md-2 col-md-pull-2'></div>";
+                    print "    <div id='two-col-columm-rhs' class='col-md-2'></div>";
+                    print "</div>";
+                }
+            ?>
+            
         </div>
-        
-        <?php
-            if ($page['eight-column']) {
-                print "<div id='eight-col-container' class='container'>";
-                print "    <div id='eight-col-columm' class='col-md-8 col-md-push-2'>";
-                print "        <div id='eight-col-content'>" .render($page['eight-column']). "</div>";            
-                print "    </div>";
-                print "    <div id='two-col-columm-lhs' class='col-md-2 col-md-pull-2'></div>";
-                print "    <div id='two-col-columm-rhs' class='col-md-2'></div>";
-                print "</div>";
-            }
-        ?>
-        
-    </div>
-
+    </main>
     
-    <footer id="footer" class="footer">
+    <footer role="contentinfo" id="footer" class="footer">
         <?php if ($page['footer']): ?>    
             <div id="footer" class="container"><?php print render($page['footer']); ?></div>
         <?php endif; ?>

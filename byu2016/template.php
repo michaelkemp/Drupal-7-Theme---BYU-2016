@@ -197,6 +197,7 @@ function byu2016_form_alter(&$form, &$form_state, $form_id) {
 
         $form['#attributes']['class'][] = $formClass;
         $form['#attributes']['onsubmit'] = "if(this.search_block_form.value==''){ return false; }";
+        $form['#attributes']['role'] = "search";
         
         $form['search_block_form']['#size'] = 20;
         $form['search_block_form']['#default_value'] = t($val);
@@ -209,7 +210,7 @@ function byu2016_form_alter(&$form, &$form_state, $form_id) {
  
         $form['actions']['submit']['#attributes']['style'] = 'display:none;';
         $form['actions']['#theme_wrappers'] = array();
-        $form['actions']['button']['#prefix'] = '<div class="' .$bttnClass. '"><button type="submit" class="button-small">';
+        $form['actions']['button']['#prefix'] = '<div class="' .$bttnClass. '"><button aria-label="Submit Search" type="submit" class="button-small">';
         $form['actions']['button']['#markup'] = '<i class="fa fa-search" aria-hidden="true"></i>';
         $form['actions']['button']['#suffix'] = '</button></div>';
  
