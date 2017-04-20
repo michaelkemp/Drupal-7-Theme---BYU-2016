@@ -1,7 +1,7 @@
 name                        = 2016 BYU Drupal Theme
 description                 = A simple BOOTSTRAP[3.3.7] based theme with hero, sidebars, content, and footer regions
 core                        = 7.x
-version                     = 2.94
+version                     = 2.96
 engine                      = phptemplate
 screenshot                  = screenshot.png
 
@@ -19,9 +19,9 @@ settings[search_use]        = 1
 settings[search_url]        = "/search/node"
 settings[menu_count]        = 6
 settings[add_login]         = 0
-settings[login_text]        = "::fa-user-circle-o:: SIGN IN"
+settings[login_text]        = "::fa-user-circle-o::SIGN IN"
 settings[login_link]        = "/user/login"
-settings[logout_text]       = "::fa-user-circle:: SIGN OUT"
+settings[logout_text]       = "::fa-user-circle::SIGN OUT"
 settings[logout_link]       = "/user/logout"
 settings[foot_region_cnt]   = 4
 settings[foot_area1_title]  = "Contact Info"

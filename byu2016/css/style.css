@@ -794,3 +794,68 @@ h1, h2, h3, h4, h5, h6 {
 .byu2016-footer-div .fa-slack { color: #2D333A; }
 /* =============================== SOCIAL MEDIA ICONS =============================== */
 
+.byu2016-main-menu-desktop-menu .dropdown-menu li {
+	text-align: left; 
+}
+.byu2016-main-menu-desktop-menu .dropdown-menu li a {
+	padding: 11px 25px;
+}
+.byu2016-main-menu-desktop-menu .dropdown-menu {
+    border-top: 0px;
+}
+.byu2016-header-mobile-search .byu2016-search-text input[type=text] {
+    padding-left: 15px;
+}
+.navbar-collapse {
+    padding: 0px;
+}
+.byu2016-header-mobile-combined-menu {
+    margin: 0px;
+}
+.byu2016-header-mobile-combined-menu .main-menu a, .byu2016-header-mobile-combined-menu .user-menu a  {
+    padding: 10px 59px;
+}
+.byu2016-header-mobile-combined-menu .user-menu {
+    background-color: #e6e6e6;
+}
+.byu2016-header-mobile-combined-menu .user-menu a {
+    color: #002e5d;
+    text-decoration: none;
+}
+.byu2016-header-mobile-combined-menu .user-menu a:hover {
+    background-color: #ddd;
+    color: #002e5d;
+    text-decoration: inherit;
+}
+.byu2016-header-mobile-combined-menu .menu-parent>p {
+	padding: 10px 59px;
+	color: #002e5d;
+}
+.byu2016-header-mobile-combined-menu .menu-parent>a .fa {
+	padding: 0px 8px;
+}
+.byu2016-header-mobile-combined-menu .menu-parent {
+    border-bottom: 1px solid #e6e6e6;
+}
+.byu2016-header-mobile-combined-menu .menu-parent.main-menu, .byu2016-header-mobile-combined-menu .menu-parent.user-menu {
+	border: 0;
+}
+
+.byu2016-footer-div .fa {
+    -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.byu2016-footer-site-block a u strong em, 
+.byu2016-footer-site-block a u em strong, 
+.byu2016-footer-site-block a strong em u, 
+.byu2016-footer-site-block a strong u em, 
+.byu2016-footer-site-block a em u strong, 
+.byu2016-footer-site-block a em strong u {
+    -moz-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
