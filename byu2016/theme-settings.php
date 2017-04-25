@@ -362,7 +362,6 @@ function byu2016_theme_settings_valitation($form, &$form_state) {
                 $dom = new DomDocument();
                 $dom->loadHTML($value);
                 foreach ($dom->getElementsByTagName('a') as $item) {
-                    $atag = trim($dom->saveHTML($item));
                     $href = trim($item->getAttribute('href'));
                     $titl = trim($item->getAttribute('title'));
                     $text = trim($item->nodeValue);
