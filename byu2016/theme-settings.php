@@ -344,5 +344,47 @@ function byu2016_form_system_theme_settings_alter(&$form, $form_state) {
             '#description'   => t("Content Types (machine name). Comma separated."),
         );
 
+
+        $form['#validate'][] = 'byu2016_theme_settings_valitation';
         
 }
+
+function byu2016_theme_settings_valitation($form, &$form_state) {
+    
+    $footerHTML = array();
+    $footerHTML['foot_area1_body'] = isset($form_state['values']['foot_area1_body']) ? $form_state['values']['foot_area1_body'] : "";
+    $footerHTML['foot_area2_body'] = isset($form_state['values']['foot_area2_body']) ? $form_state['values']['foot_area2_body'] : "";
+    $footerHTML['foot_area3_body'] = isset($form_state['values']['foot_area3_body']) ? $form_state['values']['foot_area3_body'] : "";
+    $footerHTML['foot_area4_body'] = isset($form_state['values']['foot_area4_body']) ? $form_state['values']['foot_area4_body'] : "";
+
+    foreach($footerHTML as $key => $value) {
+        if (trim($value) != "") {
+                $dom = new DomDocument();
+                $dom->loadHTML($value);
+                foreach ($dom->getElementsByTagName('a') as $item) {
+                    $atag = trim($dom->saveHTML($item));
+                    $href = trim($item->getAttribute('href'));
+                    $titl = trim($item->getAttribute('title'));
+                    $text = trim($item->nodeValue);
+                    
+                    $noTITL = ($titl == ""); // empty/missing title tag
+                    $noTEXT = (preg_replace('/::([a-zA-Z0-9\-]*)::/','',$text) == ""); // Nothing but a font awesome icon
+                    if ($noTITL && $noTEXT) {
+                        switch($key) {
+                            case 'foot_area1_body': form_set_error($key, t('Please include a title for your "Footer Column One" links eg &lt;a href="http://facebook.com/" title="Visit our Facebook">::fa-facebook-official::&lt;/a>')); break;
+                            case 'foot_area2_body': form_set_error($key, t('Please include a title for your "Footer Column Two" links eg &lt;a href="http://facebook.com/" title="Visit our Facebook">::fa-facebook-official::&lt;/a>')); break;
+                            case 'foot_area3_body': form_set_error($key, t('Please include a title for your "Footer Column Three" links eg &lt;a href="http://facebook.com/" title="Visit our Facebook">::fa-facebook-official::&lt;/a>')); break;
+                            case 'foot_area4_body': form_set_error($key, t('Please include a title for your "Footer Column Four" links eg &lt;a href="http://facebook.com/" title="Visit our Facebook">::fa-facebook-official::&lt;/a>')); break;
+                        }
+                    } else {
+                        if ($titl != "") {
+                            $item->setAttribute('aria-label', $titl);    
+                            $form_state['values'][$key] = $dom->saveHTML();
+                        }
+                    }
+                }
+        }
+    }
+    
+}
+
