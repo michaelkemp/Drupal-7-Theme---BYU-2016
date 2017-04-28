@@ -101,7 +101,8 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 0px;
 }
 
-.title-container a, .title-container a:hover {
+.title-container a, .title-container a:hover, 
+a.header-title-link, a:hover.header-title-link {
     text-decoration:none;
 }
 
