@@ -320,8 +320,7 @@ function byu2016GetVars() {
     
     $vars["urlClss"] = "url-" . trim(preg_replace('/\-+/','-',preg_replace('/[^a-z0-9]/','-',strtolower($pageURI))),"-");
     if ( arg(0) == 'node' && is_numeric(arg(1)) ) {
-        $node = node_load(arg(1));
-        $contentType = isset($node->type) ? $node->type : "";
+        $contentType = db_query("SELECT type FROM {node} WHERE nid = :nid", array(':nid' => arg(1)))->fetchField();
         $vars["typClss"] = "node-" . arg(1) . " type-" . trim(preg_replace('/\-+/','-',preg_replace('/[^a-z0-9]/','-',strtolower($contentType))),"-");
     } else {
         $vars["typClss"] = "type-not-node";
@@ -329,65 +328,11 @@ function byu2016GetVars() {
     }
     
     $vars["sideBAR"] = 3;
-    $layout282Pages = trim(theme_get_setting('layout282'));
-    if ($layout282Pages !== "") {
-        $pages = explode(",",trim($layout282Pages));
-        foreach($pages as $page) {
-            $page = (trim($page) === "<front>") ? trim(url('<front>'),"/") : $page;
-            $wild = byu2016EndsWith($page, "*");
-            if ($wild) {
-                $check = trim($page," *");
-                if (byu2016StartsWith($pageURI,$check)) {
-                    $vars["sideBAR"] = 2;
-                }
-            } else {
-                $check = trim($page," ");
-                 if ($pageURI === $check) {
-                    $vars["sideBAR"] = 2;
-                }
-            }
-        }
-    }
-    
-    $layout444Pages = trim(theme_get_setting('layout444'));
-    if ($layout444Pages !== "") {
-        $pages = explode(",",trim($layout444Pages));
-        foreach($pages as $page) {
-            $page = (trim($page) === "<front>") ? trim(url('<front>'),"/") : $page;
-            $wild = byu2016EndsWith($page, "*");
-            if ($wild) {
-                $check = trim($page," *");
-                if (byu2016StartsWith($pageURI,$check)) {
-                    $vars["sideBAR"] = 4;
-                }
-            } else {
-                $check = trim($page," ");
-                 if ($pageURI === $check) {
-                    $vars["sideBAR"] = 4;
-                }
-            }
-        }
-    }
-     
-    $layout282Content = trim(theme_get_setting('layout282ct'));
-    if ($layout282Content !== "") {
-        $cTypes = explode(",",trim($layout282Content));
-        foreach($cTypes as $ct) {
-            if ( (trim($ct) !== "") && (trim(strtolower($ct)) === trim(strtolower($contentType))) ) {
-                    $vars["sideBAR"] = 2;
-            }
-        }
-    }
-    
-    $layout444Content = trim(theme_get_setting('layout444ct'));
-    if ($layout444Content !== "") {
-        $cTypes = explode(",",trim($layout444Content));
-        foreach($cTypes as $ct) {
-            if ( (trim($ct) !== "") && (trim(strtolower($ct)) === trim(strtolower($contentType))) ) {
-                    $vars["sideBAR"] = 4;
-            }
-        }
-    }
+	
+	if (byu2016PageMatch(theme_get_setting('layout282'))) 				 { $vars["sideBAR"] = 2; }
+    if (byu2016PageMatch(theme_get_setting('layout444'))) 				 { $vars["sideBAR"] = 4; }
+    if (byu2016TypeMatch(theme_get_setting('layout282ct'),$contentType)) { $vars["sideBAR"] = 2; }
+    if (byu2016TypeMatch(theme_get_setting('layout444ct'),$contentType)) { $vars["sideBAR"] = 4; }
     
     return $vars;
     
@@ -524,23 +469,6 @@ function byu2016BootstrapMenu($menuName, $depth=1, $dropdown=true) {
 
 /**
  *
- *  String Start and End functions
- *
- */
-
-function byu2016StartsWith($haystack, $needle) {
-     $length = strlen($needle);
-     return (substr($haystack, 0, $length) === $needle);
-}
-
-function byu2016EndsWith($haystack, $needle) {
-    $length = strlen($needle);
-    if ($length == 0) { return true; }
-    return (substr($haystack, -$length) === $needle);
-}
-
-/**
- *
  *  Remove Menu Items, not marked as *Enabled*, from the list 
  *
  */
@@ -551,6 +479,54 @@ function byu2016StripHidden(&$menu) {
             unset($menu[$key]);
         }
     }
+}
+
+/**
+ *
+ *  PAGE MATCH 
+ *
+ */
+function byu2016PageMatch($patternList) {
+
+	$pagePath = current_path();
+	$pageAlias = drupal_get_path_alias($pagePath);
+	$pageFront = variable_get('site_frontpage', 'node');
+	
+	$patternList = strtolower($patternList); // Lowercast Patterns
+	$patternList = preg_replace("/\s+/","",$patternList); // remove whitespace from Patterns
+	$patternList = str_replace("<front>",$pageFront,$patternList); // replace <front> with actual URL
+    $patternList = str_replace(",",PHP_EOL,$patternList); // replace commas with EOL
+	
+	if (drupal_match_path($pagePath, $patternList) || drupal_match_path($pageAlias, $patternList)) {
+		return true;
+    }
+	return false;
+	
+}
+
+/**
+ *
+ *  TYPE MATCH 
+ *
+ */
+function byu2016TypeMatch($patternList,$type) {
+	
+	$type = strtolower($type); // Lowercast ContentType
+	$type = preg_replace("/\s+/","",$type); // remove whitespace from ContentType
+
+	$patternList = strtolower($patternList); // Lowercast Patterns
+	$patternList = preg_replace("/\s+/","",$patternList); // remove whitespace from Patterns
+
+    if ($patternList !== "") {
+        $cTypes = explode(",",trim($patternList));
+        foreach($cTypes as $ct) {
+            if ( ($type !== "") && ($type === $ct) ) {
+                return true;
+            }
+        }
+    }
+	return false;
+	
 }
 
 /**

@@ -1,108 +1,108 @@
 <div id="page">
 
     <header role="banner" id="header" class="header byu2016-top-header">
-    <!--- ========================================================== BEGIN DESKTOP ========================================================== --->
-        <nav role="navigation" class="navbar byu2016-header-desktop">
-            <div class="container byu2016-header-desktop-container">
-            
-                <!-- ================= BYU LOGO + SITE TITLE ================= -->
-                <div class="byu2016-header-desktop-site">
-                    <?php print $variables['site_logo']; ?>
-                </div> 
+        <!--- ========================================================== BEGIN DESKTOP ========================================================== --->
+            <nav role="navigation" class="navbar byu2016-header-desktop">
+                <div class="container byu2016-header-desktop-container">
                 
-                <div class="byu2016-header-desktop-menu-search">
-     
-                    <!-- ================= DESKTOP USER MENU ================= -->
-                    <?php if (trim($variables["user-menu-markup"] . $variables["add-login"]) != ""): ?>
-                        <ul class="nav navbar-nav byu2016-header-desktop-menu">
-                            <?php print $variables["user-menu-markup"]; ?>
-                            <?php print $variables["add-login"]; ?>
-                        </ul>
-                    <?php endif; ?>
+                    <!-- ================= BYU LOGO + SITE TITLE ================= -->
+                    <div class="byu2016-header-desktop-site">
+                        <?php print $variables['site_logo']; ?>
+                    </div> 
                     
-                    <!-- ================= DESKTOP SEARCH FORM ================= -->
-                    <?php if (theme_get_setting('search_use') == 1): ?>
-                        <div class="byu2016-header-desktop-search">
-                            <?php $search = drupal_get_form('search_block_form'); print render($search); ?>
+                    <div class="byu2016-header-desktop-menu-search">
+         
+                        <!-- ================= DESKTOP USER MENU ================= -->
+                        <?php if (trim($variables["user-menu-markup"] . $variables["add-login"]) != ""): ?>
+                            <ul class="nav navbar-nav byu2016-header-desktop-menu">
+                                <?php print $variables["user-menu-markup"]; ?>
+                                <?php print $variables["add-login"]; ?>
+                            </ul>
+                        <?php endif; ?>
+                        
+                        <!-- ================= DESKTOP SEARCH FORM ================= -->
+                        <?php if (theme_get_setting('search_use') == 1): ?>
+                            <div class="byu2016-header-desktop-search">
+                                <?php $search = drupal_get_form('search_block_form'); print render($search); ?>
+                            </div>
+                        <?php endif; ?>
+                        
+                    </div>
+                    
+                </div>
+            </nav>
+
+            <?php if (trim($variables["main-menu-markup"]) != ""): ?>
+                <nav role="navigation" class="navbar byu2016-main-menu-desktop">
+                    <div class="container byu2016-main-menu-desktop-container">
+                        <!-- ================= DESKTOP MAIN MENU ================= -->
+                        <ul class="nav navbar-nav byu2016-main-menu-desktop-menu">
+                            <?php print $variables["main-menu-markup"]; ?>
+                        </ul>
+                    </div>
+                </nav>
+            <?php endif; ?>
+        <!--- ========================================================== END DESKTOP ========================================================== --->
+
+
+        <!--- ========================================================== BEGIN MOBILE ========================================================== --->
+            <nav role="navigation" class="navbar byu2016-header-mobile">
+                <div class="container byu2016-header-mobile-container">
+                    <!-- ================= BYU LOGO + SITE TITLE ================= -->
+                    <div class="byu2016-header-mobile-site">
+                        <?php print $variables['site_logo']; ?>
+                    </div> 
+                    <?php if (trim($variables["main-menu-markup"] . $variables["user-menu-markup"] . $variables["add-login"]) != ""): ?>
+                        <div class="byu2016-header-mobile-menu-button">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#byu2016-mobile-menu-collapse" aria-expanded="false" aria-label="Main Menu">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </button>
                         </div>
                     <?php endif; ?>
-                    
-                </div>
-                
-            </div>
-        </nav>
-
-        <?php if (trim($variables["main-menu-markup"]) != ""): ?>
-            <nav role="navigation" class="navbar byu2016-main-menu-desktop">
-                <div class="container byu2016-main-menu-desktop-container">
-                    <!-- ================= DESKTOP MAIN MENU ================= -->
-                    <ul class="nav navbar-nav byu2016-main-menu-desktop-menu">
-                        <?php print $variables["main-menu-markup"]; ?>
-                    </ul>
                 </div>
             </nav>
-        <?php endif; ?>
-    <!--- ========================================================== END DESKTOP ========================================================== --->
-
-
-    <!--- ========================================================== BEGIN MOBILE ========================================================== --->
-        <nav role="navigation" class="navbar byu2016-header-mobile">
-            <div class="container byu2016-header-mobile-container">
-                <!-- ================= BYU LOGO + SITE TITLE ================= -->
-                <div class="byu2016-header-mobile-site">
-                    <?php print $variables['site_logo']; ?>
-                </div> 
-                <?php if (trim($variables["main-menu-markup"] . $variables["user-menu-markup"] . $variables["add-login"]) != ""): ?>
-                    <div class="byu2016-header-mobile-menu-button">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#byu2016-mobile-menu-collapse" aria-expanded="false" aria-label="Main Menu">
-                            <i class="fa fa-bars" aria-hidden="true"></i>
-                        </button>
+            
+            <?php if (trim($variables["main-menu-markup-flat"] . $variables["user-menu-markup-flat"] . $variables["add-login"]) != ""): ?>
+                <nav role="navigation" class="navbar byu2016-combined-menu-mobile">
+                    <div class="container byu2016-header-mobile-menu">
+                        <div class="collapse navbar-collapse" id="byu2016-mobile-menu-collapse">
+                            <ul class="nav navbar-nav byu2016-header-mobile-combined-menu">
+                                <?php 
+                                    if (trim($variables["add-login"]) != "") {
+                                        print $variables["add-login"];
+                                    }
+                                ?>
+                                <?php 
+                                    if (trim($variables["main-menu-markup-flat"]) != "") {
+                                        print $variables["main-menu-markup-flat"];
+                                    }
+                                ?>
+                                <?php
+                                    if (trim($variables["user-menu-markup-flat"]) != "") {
+                                        print $variables["user-menu-markup-flat"];
+                                    }
+                                ?>
+                            </ul>
+                        </div>        
                     </div>
-                <?php endif; ?>
-            </div>
-        </nav>
-        
-        <?php if (trim($variables["main-menu-markup-flat"] . $variables["user-menu-markup-flat"] . $variables["add-login"]) != ""): ?>
-            <nav role="navigation" class="navbar byu2016-combined-menu-mobile">
-                <div class="container byu2016-header-mobile-menu">
-                    <div class="collapse navbar-collapse" id="byu2016-mobile-menu-collapse">
-                        <ul class="nav navbar-nav byu2016-header-mobile-combined-menu">
-                            <?php 
-                                if (trim($variables["add-login"]) != "") {
-                                    print $variables["add-login"];
-                                }
-                            ?>
-                            <?php 
-                                if (trim($variables["main-menu-markup-flat"]) != "") {
-                                    print $variables["main-menu-markup-flat"];
-                                }
-                            ?>
-                            <?php
-                                if (trim($variables["user-menu-markup-flat"]) != "") {
-                                    print $variables["user-menu-markup-flat"];
-                                }
-                            ?>
-                        </ul>
-                    </div>        
-                </div>
-            </nav>
-        <?php endif; ?>
+                </nav>
+            <?php endif; ?>
 
-        <?php if (theme_get_setting('search_use') == 1): ?>
-            <nav role="navigation" class="navbar byu2016-search-mobile">
-                <!-- ================= MOBILE SEARCH FORM ================= -->
-                <div class="byu2016-header-mobile-search">
-                    <?php $search = drupal_get_form('search_block_form'); print render($search); ?>
-                </div>
-            </nav>
-        <?php endif; ?>    
-    <!--- ========================================================== END MOBILE ========================================================== --->
+            <?php if (theme_get_setting('search_use') == 1): ?>
+                <nav role="navigation" class="navbar byu2016-search-mobile">
+                    <!-- ================= MOBILE SEARCH FORM ================= -->
+                    <div class="byu2016-header-mobile-search">
+                        <?php $search = drupal_get_form('search_block_form'); print render($search); ?>
+                    </div>
+                </nav>
+            <?php endif; ?>    
+        <!--- ========================================================== END MOBILE ========================================================== --->
     </header>
 
     
-    <main role="main">
+    <main role="main" id="flex-body">
         <a name="main-content" aria-label="Main Content"></a>
-        <div id="flex-body" class="<?php print $variables["content-url-class"]; ?>">
+        <div class="<?php print $variables["content-url-class"]; ?>">
             <?php if ($page['hero']): ?>    
                 <div id="hero"><?php print render($page['hero']); ?></div>
             <?php endif; ?>
