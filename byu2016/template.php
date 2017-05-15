@@ -8,7 +8,7 @@ require_once(dirname(__FILE__) . '/vendor/phpSyllable/classes/autoloader.php');
  *  Implements HOOK_js_alter(&$javascript)
  *
  */
- function byu2016_js_alter(&$javascript) {
+function byu2016_js_alter(&$javascript) {
      
     // Swap out jQuery - bootstrap needs at least v1.9.1
     // ========================== JQUERY FALLBACK ==========================
@@ -20,6 +20,17 @@ require_once(dirname(__FILE__) . '/vendor/phpSyllable/classes/autoloader.php');
     $javascript['misc/jquery.js']['version'] = '1.12.4';
     $javascript['misc/jquery.js']['group']  = JS_LIBRARY;
     $javascript['misc/jquery.js']['weight'] = -20;
+}
+    
+/**
+ *
+ *  Implements HOOK_preprocess_image(&$variables)
+ *
+ */
+function byu2016_preprocess_image(&$variables) {
+    if (theme_get_setting('responsive_images') == 1) {
+        $variables['attributes']['class'][] = 'img-responsive';
+    }
 }
 
 /**

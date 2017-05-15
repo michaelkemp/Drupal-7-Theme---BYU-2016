@@ -297,6 +297,12 @@ function byu2016_form_system_theme_settings_alter(&$form, $form_state) {
         '#collapsible' => TRUE,
         '#collapsed' => TRUE,
     );
+        $form['page_settings']['responsive_images'] = array(
+            '#type'          => 'checkbox',
+            '#title'         => t('Bootstrap Responsive Images'),
+            '#default_value' => theme_get_setting('responsive_images'),
+            '#description'   => t("Adds the 'img-responsive' class to img tags"),
+        );
         $form['page_settings']['byu_bootstrap_css'] = array(
             '#type'          => 'checkbox',
             '#title'         => t('BYU Bootstrap Theme'),

@@ -1,7 +1,7 @@
 name                        = 2016 BYU Drupal Theme
 description                 = A simple BOOTSTRAP[3.3.7] based theme with hero, sidebars, content, and footer regions
 core                        = 7.x
-version                     = 3.22
+version                     = 3.33
 engine                      = phptemplate
 screenshot                  = screenshot.png
 
@@ -38,6 +38,7 @@ settings[site_map_url]      = "/site-map"
 settings[icon_directory]    = "default"
 settings[facebook_app_id]   = ""
 settings[full_font_package] = 0
+settings[responsive_images] = 0
 settings[byu_bootstrap_css] = 0
 settings[page_title]        = 0
 settings[layout282]         = ""
