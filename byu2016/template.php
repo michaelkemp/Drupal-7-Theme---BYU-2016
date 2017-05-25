@@ -582,6 +582,10 @@ function byu2016CDNFallback($url) {
         return false; // FALLBACK if on development (non byu) domain
     }
     
+    if (!function_exists('curl_version')) {
+        return false; // FALLBACK if no CURL to check CDNs
+    }
+    
     $ch = @curl_init($fullURL);    
     if ($ch === false) {
         return false;
