@@ -366,6 +366,7 @@ function byu2016_theme_settings_valitation($form, &$form_state) {
     foreach($footerHTML as $key => $value) {
         if (trim($value) != "") {
                 $dom = new DomDocument();
+                $dom->strictErrorChecking = false;
                 $dom->loadHTML($value);
                 foreach ($dom->getElementsByTagName('a') as $item) {
                     $href = trim($item->getAttribute('href'));
