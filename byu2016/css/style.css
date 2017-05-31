@@ -545,6 +545,7 @@ a.header-title-link, a:hover.header-title-link {
 #page {
   display: flex;
   min-height: 100vh;
+  height: 100vh; /* for IE */
   flex-direction: column; 
 }  
 #flex-body {
