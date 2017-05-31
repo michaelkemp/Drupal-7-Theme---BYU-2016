@@ -358,16 +358,17 @@ function byu2016_form_system_theme_settings_alter(&$form, $form_state) {
 function byu2016_theme_settings_valitation($form, &$form_state) {
     
     $footerHTML = array();
-    $footerHTML['foot_area1_body'] = isset($form_state['values']['foot_area1_body']) ? $form_state['values']['foot_area1_body'] : "";
-    $footerHTML['foot_area2_body'] = isset($form_state['values']['foot_area2_body']) ? $form_state['values']['foot_area2_body'] : "";
-    $footerHTML['foot_area3_body'] = isset($form_state['values']['foot_area3_body']) ? $form_state['values']['foot_area3_body'] : "";
-    $footerHTML['foot_area4_body'] = isset($form_state['values']['foot_area4_body']) ? $form_state['values']['foot_area4_body'] : "";
+    $footerHTML['foot_area1_body'] = isset($form_state['values']['foot_area1_body']) ? check_markup($form_state['values']['foot_area1_body'],"filtered_html") : "";
+    $footerHTML['foot_area2_body'] = isset($form_state['values']['foot_area2_body']) ? check_markup($form_state['values']['foot_area2_body'],"filtered_html") : "";
+    $footerHTML['foot_area3_body'] = isset($form_state['values']['foot_area3_body']) ? check_markup($form_state['values']['foot_area3_body'],"filtered_html") : "";
+    $footerHTML['foot_area4_body'] = isset($form_state['values']['foot_area4_body']) ? check_markup($form_state['values']['foot_area4_body'],"filtered_html") : "";
 
     foreach($footerHTML as $key => $value) {
         if (trim($value) != "") {
                 $dom = new DomDocument();
+                $dom->encoding = 'utf-8';
                 $dom->strictErrorChecking = false;
-                $dom->loadHTML($value);
+                $dom->loadHTML(utf8_decode($value));
                 foreach ($dom->getElementsByTagName('a') as $item) {
                     $href = trim($item->getAttribute('href'));
                     $titl = trim($item->getAttribute('title'));
@@ -384,8 +385,9 @@ function byu2016_theme_settings_valitation($form, &$form_state) {
                         }
                     } else {
                         if ($titl != "") {
-                            $item->setAttribute('aria-label', $titl);    
-                            $form_state['values'][$key] = $dom->saveHTML();
+                            $item->setAttribute('aria-label', $titl);
+                            $html = $dom->saveHTML();
+                            if ($html !== false) { $form_state['values'][$key] = $html; }
                         }
                     }
                 }
