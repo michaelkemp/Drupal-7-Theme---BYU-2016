@@ -244,10 +244,10 @@
             
             <div class='byu2016-footer-div-byu'>
                 <div class='byu2016-footer-byu-logo'>
-                    <a href='http://byu.edu/' aria-label='Brigham Young University'><img src='/<?php print $directory ?>/images/footer-wordmark-inline.svg' alt='Brigham Young University'></img></a>
+                    <a href='http://byu.edu/' aria-label='Brigham Young University'><img src='<?php print $variables["theme_url"] ?>/images/footer-wordmark-inline.svg' alt='Brigham Young University'></img></a>
                 </div>
                 <div class='byu2016-footer-byu-logo-stacked'>
-                    <a href='http://byu.edu/' aria-label='Brigham Young University'><img src='/<?php print $directory ?>/images/footer-wordmark-stacked.svg' alt='Brigham Young University'></img></a>
+                    <a href='http://byu.edu/' aria-label='Brigham Young University'><img src='<?php print $variables["theme_url"] ?>/images/footer-wordmark-stacked.svg' alt='Brigham Young University'></img></a>
                 </div>
                 <div class='byu2016-footer-byu-copyright'>
                     <?php 

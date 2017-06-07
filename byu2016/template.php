@@ -9,10 +9,10 @@ require_once(dirname(__FILE__) . '/vendor/phpSyllable/classes/autoloader.php');
  *
  */
 function byu2016_js_alter(&$javascript) {
-     
+     global $base_url;
     // Swap out jQuery - bootstrap needs at least v1.9.1
     // ========================== JQUERY FALLBACK ==========================
-    $local = drupal_get_path('theme', 'byu2016') . '/vendor/jquery-1.12.4/jquery.min.js';
+    $local = $base_url . "/" .  drupal_get_path('theme', 'byu2016') . '/vendor/jquery-1.12.4/jquery.min.js';
     $cdn = "//code.jquery.com/jquery-1.12.4.min.js";
     if (byu2016CDNFallback($cdn)) { $jquery = $cdn; } else { $jquery = $local; }
     
@@ -40,6 +40,7 @@ function byu2016_preprocess_image(&$variables) {
  */
 function byu2016_preprocess_page(&$variables) {
     global $user;
+    global $base_url;
     
     $myVars = byu2016GetVars();
     
@@ -50,7 +51,7 @@ function byu2016_preprocess_page(&$variables) {
     $myVars["siteSUB"] = $syllable->hyphenateText($myVars["siteSUB"]);
     // ================== Add Soft-Hyphens to Title and Subtitle ==================
     
-    $byuMark = "/" . drupal_get_path('theme', 'byu2016') . "/images/byu.svg";
+    $byuMark = $base_url . "/" . drupal_get_path('theme', 'byu2016') . "/images/byu.svg";
     $url = $myVars["homeURL"];
     $title = "<div class='site-name'>" .$myVars["siteTTL"]. "</div>";
     $class = ($myVars["subtITA"]) ? "sub-title-italic" : "sub-title";
@@ -75,6 +76,7 @@ function byu2016_preprocess_page(&$variables) {
     $html.= "<div class='title-container title-container-flex'>${siteTitle}</div>";
     $html.= "</a>";
     
+    $variables["theme_url"] = $base_url . "/" . drupal_get_path('theme', 'byu2016');
     $variables["site_logo"] = $html;
     $variables["main-menu-markup"] = byu2016BootstrapMenu('main-menu',1,true);
     $variables["main-menu-markup-flat"] = byu2016BootstrapMenu('main-menu',1,false);
@@ -286,7 +288,7 @@ function byu2016GetVars() {
     $pageURI = trim(strtok($_SERVER["REQUEST_URI"],"?"),"/");
     $domain = $protocol . $_SERVER['SERVER_NAME'];
     if (($_SERVER['SERVER_PORT'] != 80) && ($_SERVER['SERVER_PORT'] != 443)) { $domain.= ":". $_SERVER['SERVER_PORT']; }
-    $pathToTheme = $domain. '/' .path_to_theme();
+    $pathToTheme = $domain . base_path() . path_to_theme();
     $rootToTheme = DRUPAL_ROOT. '/' .path_to_theme();
     
     $siteName = variable_get('site_name');
@@ -327,7 +329,7 @@ function byu2016GetVars() {
     $vars["appIdnt"] = $siteAppId;
     $vars["pageURL"] = $pageURL;
     $vars["pageTtl"] = $pageTtl;
-    $vars["homeURL"] = $domain . "/";
+    $vars["homeURL"] = $domain . base_path();
     
     $vars["urlClss"] = "url-" . trim(preg_replace('/\-+/','-',preg_replace('/[^a-z0-9]/','-',strtolower($pageURI))),"-");
     if ( arg(0) == 'node' && is_numeric(arg(1)) ) {
@@ -440,7 +442,6 @@ function byu2016BootstrapMenu($menuName, $depth=1, $dropdown=true) {
                             $list.="</ul>";
                             $list.="</li>";
                     } else {
-                            //$list.="<li class='menu-parent ${menuName}'><a>${titl} <span class='caret'></span></a></li>";
                             $list.="<li class='menu-parent ${menuName}'><p>${titl} <span class='caret'></span></p></li>";
                             foreach($leaves as $leaf) {
                                 $titl = isset($leaf["link"]["title"]) ? $leaf["link"]["title"] : "";
