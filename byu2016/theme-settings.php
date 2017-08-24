@@ -274,10 +274,16 @@ function byu2016_form_system_theme_settings_alter(&$form, $form_state) {
             
     $form['meta'] = array(
         '#type' => 'fieldset',
-        '#title' => t('Icon & App Settings'),
+        '#title' => t('Icon, App, & META Settings'),
         '#collapsible' => TRUE,
         '#collapsed' => TRUE,
     );
+        $form['meta']['block_robots'] = array(
+            '#type'          => 'checkbox',
+            '#title'         => t('Block Search Engine Crawlers'),
+            '#default_value' => theme_get_setting('block_robots'),
+            '#description'   => t("Adds 'noindex, nofollow' META Tag"),
+        );
         $form['meta']['icon_directory'] = array(
             '#type'          => 'textfield',
             '#title'         => t('Site FAV/Apple Icon Directory'),
@@ -289,6 +295,12 @@ function byu2016_form_system_theme_settings_alter(&$form, $form_state) {
             '#title'         => t('Facebook App ID'),
             '#default_value' => theme_get_setting('facebook_app_id'),
             '#description'   => t("Add this value if using a Facebook Comments Section."),
+        );
+        $form['meta']['site_description'] = array(
+            '#type'          => 'textfield',
+            '#title'         => t('Site Description'),
+            '#default_value' => theme_get_setting('site_description'),
+            '#description'   => t("Used in 'og:description' Meta Data"),
         );
 
     $form['page_settings'] = array(

@@ -42,7 +42,7 @@ function byu2016_preprocess_page(&$variables) {
     global $user;
     global $base_url;
     
-    $myVars = byu2016GetVars();
+    $myVars = byu2016GetVars($variables);
     
     // ================== Add Soft-Hyphens to Title and Subtitle ==================
     $syllable = new Syllable('en-us');
@@ -110,33 +110,43 @@ function byu2016_preprocess_page(&$variables) {
  */
 function byu2016_preprocess_html(&$variables) {
     
-    $myVars = byu2016GetVars();
+    $myVars = byu2016GetVars($variables);
     
     $metaSTR ="\n";
-    $metaSTR.="\n<!-- FACEBOOK META TAGS -->";
-    $metaSTR.="\n<meta property='fb:app_id' content='${myVars['appIdnt']}' />";
-    $metaSTR.="\n<meta property='og:site_name' content='${myVars['siteNam']}' />";
-    $metaSTR.="\n<meta property='og:description' content='${myVars['siteNam']} on Facebook' />";
-    $metaSTR.="\n<meta property='og:title' content='${myVars['pageTtl']}' />";
-    $metaSTR.="\n<meta property='og:type' content='university' />";
-    $metaSTR.="\n<meta property='og:url' content='${myVars['pageURL']}' />";
-    $metaSTR.="\n<meta property='og:image' content='${myVars['fullDir']}/social.png' />";
-    $metaSTR.="\n<!-- END FACEBOOK META TAGS -->";
 
-    $metaSTR.="\n<!-- FAV and APPLE ICON TAGS -->";
-    $metaSTR.="\n<meta name='msapplication-config' content='none' />";
-    $metaSTR.="\n<link rel='shortcut icon' href='${myVars['fullDir']}/favicon.ico' type='image/x-icon' />";
-    $metaSTR.="\n<link rel='apple-touch-icon' href='${myVars['fullDir']}/apple-touch-icon.png' />";
-    $metaSTR.="\n<link rel='apple-touch-icon' sizes='57x57' href='${myVars['fullDir']}/apple-touch-icon-57x57.png' />";
-    $metaSTR.="\n<link rel='apple-touch-icon' sizes='72x72' href='${myVars['fullDir']}/apple-touch-icon-72x72.png' />";
-    $metaSTR.="\n<link rel='apple-touch-icon' sizes='76x76' href='${myVars['fullDir']}/apple-touch-icon-76x76.png' />";
-    $metaSTR.="\n<link rel='apple-touch-icon' sizes='114x114' href='${myVars['fullDir']}/apple-touch-icon-114x114.png' />";
-    $metaSTR.="\n<link rel='apple-touch-icon' sizes='120x120' href='${myVars['fullDir']}/apple-touch-icon-120x120.png' />";
-    $metaSTR.="\n<link rel='apple-touch-icon' sizes='144x144' href='${myVars['fullDir']}/apple-touch-icon-144x144.png' />";
-    $metaSTR.="\n<link rel='apple-touch-icon' sizes='152x152' href='${myVars['fullDir']}/apple-touch-icon-152x152.png' />";
-    $metaSTR.="\n<link rel='apple-touch-icon' sizes='180x180' href='${myVars['fullDir']}/apple-touch-icon-180x180.png' />";
-    $metaSTR.="\n<!-- END FAV and APPLE ICON TAGS -->";
+    if (theme_get_setting('block_robots') == 1) {
+        $metaSTR.="\n    <!-- ROBOT META TAG -->";
+        $metaSTR.="\n        <meta name='robots' content='noindex,nofollow'>";
+        $metaSTR.="\n    <!-- END ROBOT META TAG -->";
+        $metaSTR.="\n\n";
+    }
+
+    $metaSTR.="\n    <!-- FACEBOOK META TAGS -->";
+    $metaSTR.="\n        <meta property='fb:app_id' content='${myVars['appIdnt']}' />";
+    $metaSTR.="\n        <meta property='og:site_name' content='${myVars['siteNam']}' />";
+    $metaSTR.="\n        <meta property='og:description' content='${myVars['siteDsc']}' />";
+    $metaSTR.="\n        <meta property='og:title' content='${myVars['pageTtl']}' />";
+    $metaSTR.="\n        <meta property='og:type' content='university' />";
+    $metaSTR.="\n        <meta property='og:url' content='${myVars['pageURL']}' />";
+    $metaSTR.="\n        <meta property='og:image' content='${myVars['fullDir']}/social.png' />";
+    $metaSTR.="\n    <!-- END FACEBOOK META TAGS -->";
     $metaSTR.="\n\n";
+
+    $metaSTR.="\n    <!-- FAV and APPLE ICON TAGS -->";
+    $metaSTR.="\n        <meta name='msapplication-config' content='none' />";
+    $metaSTR.="\n        <link rel='shortcut icon' href='${myVars['fullDir']}/favicon.ico' type='image/x-icon' />";
+    $metaSTR.="\n        <link rel='apple-touch-icon' href='${myVars['fullDir']}/apple-touch-icon.png' />";
+    $metaSTR.="\n        <link rel='apple-touch-icon' sizes='57x57' href='${myVars['fullDir']}/apple-touch-icon-57x57.png' />";
+    $metaSTR.="\n        <link rel='apple-touch-icon' sizes='72x72' href='${myVars['fullDir']}/apple-touch-icon-72x72.png' />";
+    $metaSTR.="\n        <link rel='apple-touch-icon' sizes='76x76' href='${myVars['fullDir']}/apple-touch-icon-76x76.png' />";
+    $metaSTR.="\n        <link rel='apple-touch-icon' sizes='114x114' href='${myVars['fullDir']}/apple-touch-icon-114x114.png' />";
+    $metaSTR.="\n        <link rel='apple-touch-icon' sizes='120x120' href='${myVars['fullDir']}/apple-touch-icon-120x120.png' />";
+    $metaSTR.="\n        <link rel='apple-touch-icon' sizes='144x144' href='${myVars['fullDir']}/apple-touch-icon-144x144.png' />";
+    $metaSTR.="\n        <link rel='apple-touch-icon' sizes='152x152' href='${myVars['fullDir']}/apple-touch-icon-152x152.png' />";
+    $metaSTR.="\n        <link rel='apple-touch-icon' sizes='180x180' href='${myVars['fullDir']}/apple-touch-icon-180x180.png' />";
+    $metaSTR.="\n    <!-- END FAV and APPLE ICON TAGS -->";
+    $metaSTR.="\n\n";
+
 
     $variables['meta_tags'] = $metaSTR;
     $variables['facebook_id'] = trim($myVars['appIdnt']);
@@ -279,7 +289,7 @@ NORES;
  *  Return an Array of site specific variables
  *
  */
-function byu2016GetVars() {
+function byu2016GetVars($variables) {
     $vars = array();
     
     // FULL URL PATH
@@ -312,6 +322,10 @@ function byu2016GetVars() {
     
     $pageTtl = isset($variables['head_title']) ? $variables['head_title'] : $siteName;
     
+    $siteDesc = (trim(theme_get_setting('site_description')) != "") ? theme_get_setting('site_description') : $pageTtl;
+
+    $vars["siteDsc"] = $siteDesc;
+
     $vars["prntTTL"] = $siteSTUse ? $siteTitle . " - " . $siteSbTtl : $siteTitle;
     
     $vars["siteNam"] = $siteName;
