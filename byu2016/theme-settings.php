@@ -309,6 +309,12 @@ function byu2016_form_system_theme_settings_alter(&$form, $form_state) {
         '#collapsible' => TRUE,
         '#collapsed' => TRUE,
     );
+        $form['page_settings']['show_tabs'] = array(
+            '#type'          => 'checkbox',
+            '#title'         => t('Display View/Edit/Revision Tabs'),
+            '#default_value' => theme_get_setting('show_tabs'),
+            '#description'   => t("Puts Drupal View/Edit/Revision tabs the on content page."),
+        );
         $form['page_settings']['responsive_images'] = array(
             '#type'          => 'checkbox',
             '#title'         => t('Bootstrap Responsive Images'),

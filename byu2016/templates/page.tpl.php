@@ -150,6 +150,7 @@
                         
                         print "<div id='content'>";
                             if ((theme_get_setting('page_title') == 1) && ($title)) { print "<h1 class='page-title title' id='page-title'>" .$title. "</h1>"; }
+                            if ((theme_get_setting('show_tabs') == 1)  && ($tabs))  { print "<div class='tabs'>" . render($tabs) . "</div>"; } 
                             if ($page['content']) { print render($page['content']); } 
                         print "</div>";
                         
