@@ -2,6 +2,15 @@
 
 require_once(dirname(__FILE__) . '/vendor/phpSyllable/classes/autoloader.php');
 
+/**
+ *
+ *  Implements HOOK_html_head_alter(&$head_elements)
+ *
+ */
+function byu2016_html_head_alter(&$head_elements) {
+	// don't announce to the world that this is drupal 7
+	unset($head_elements['system_meta_generator']);
+}
     
 /**
  *
@@ -344,7 +353,11 @@ function byu2016GetVars($variables) {
     $vars["pageURL"] = $pageURL;
     $vars["pageTtl"] = $pageTtl;
     $vars["homeURL"] = $domain . base_path();
-    
+
+    if(trim(theme_get_setting('site_home')) != "") {
+        $vars["homeURL"] = trim(theme_get_setting('site_home'));
+    }
+
     $vars["urlClss"] = "url-" . trim(preg_replace('/\-+/','-',preg_replace('/[^a-z0-9]/','-',strtolower($pageURI))),"-");
     if ( arg(0) == 'node' && is_numeric(arg(1)) ) {
         $contentType = db_query("SELECT type FROM {node} WHERE nid = :nid", array(':nid' => arg(1)))->fetchField();
@@ -590,6 +603,11 @@ function byu2016CDNDownload($url) {
  *
  */
 function byu2016CDNFallback($url) {
+
+    if (theme_get_setting('use_local_libs') == 1) {
+        return false;
+    }
+
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https:" : "http:";
     $fullURL= $protocol.$url;
     

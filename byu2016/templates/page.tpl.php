@@ -99,8 +99,17 @@
         <!--- ========================================================== END MOBILE ========================================================== --->
     </header>
 
-    
-    <main role="main" id="flex-body">
+    <?php
+        global $user;
+        $urols = isset($user->roles) ? $user->roles : array();
+        $urolClass = "";
+        foreach($urols as $key => $val) {
+            $urolClass.= "duty-${key} ";
+        }
+        $urolClass = trim($urolClass);
+    ?>
+
+    <main role="main" id="flex-body" class="<?php print $urolClass ?>">
         <a name="main-content" aria-label="Main Content"></a>
         <div class="<?php print $variables["content-url-class"]; ?>">
             <?php if ($page['hero']): ?>    
@@ -121,10 +130,10 @@
             <!--- ======== DRUPAL HELP and MESSAGES ======== --->
             
             <?php
-                if ($page['ten-column']) {
+                if ($page['ten_column']) {
                     print "<div id='ten-col-container' class='container'>";
                     print "    <div id='ten-col-columm' class='col-md-10 col-md-push-1'>";
-                    print "        <div id='ten-col-content'>" .render($page['ten-column']). "</div>";            
+                    print "        <div id='ten-col-content'>" .render($page['ten_column']). "</div>";            
                     print "    </div>";
                     print "    <div id='one-col-columm-lhs' class='col-md-1 col-md-pull-1'></div>";
                     print "    <div id='one-col-columm-rhs' class='col-md-1'></div>";
@@ -144,8 +153,8 @@
                 
                     print "<div id='page-content-columm' class='col-md-${conWide} ${push}'>";
                     
-                        if ($page['content-head']) {
-                            print "<div id='content-head' class='content-head'>" .render($page['content-head']). "</div>";
+                        if ($page['content_head']) {
+                            print "<div id='content-head' class='content-head'>" .render($page['content_head']). "</div>";
                         }
                         
                         print "<div id='content'>";
@@ -154,8 +163,8 @@
                             if ($page['content']) { print render($page['content']); } 
                         print "</div>";
                         
-                        if ($page['content-foot']) {
-                            print "<div id='content-foot' class='content-foot'>" .render($page['content-foot']). "</div>";
+                        if ($page['content_foot']) {
+                            print "<div id='content-foot' class='content-foot'>" .render($page['content_foot']). "</div>";
                         }
                         
                     print "</div>";
@@ -175,10 +184,10 @@
             </div>
             
             <?php
-                if ($page['eight-column']) {
+                if ($page['eight_column']) {
                     print "<div id='eight-col-container' class='container'>";
                     print "    <div id='eight-col-columm' class='col-md-8 col-md-push-2'>";
-                    print "        <div id='eight-col-content'>" .render($page['eight-column']). "</div>";            
+                    print "        <div id='eight-col-content'>" .render($page['eight_column']). "</div>";            
                     print "    </div>";
                     print "    <div id='two-col-columm-lhs' class='col-md-2 col-md-pull-2'></div>";
                     print "    <div id='two-col-columm-rhs' class='col-md-2'></div>";

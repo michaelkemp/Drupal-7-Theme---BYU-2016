@@ -127,6 +127,12 @@ function byu2016_form_system_theme_settings_alter(&$form, $form_state) {
             ),
             
         );
+        $form['header']['site_home'] = array(
+            '#type'          => 'textfield',
+            '#title'         => t('Site Home Link'),
+            '#default_value' => theme_get_setting('site_home'),
+            '#description'   => t("URL that clicking the Site Title takes you to. (leave blank for default)"),
+        );
 
 
     $form['footer'] = array(
@@ -278,6 +284,12 @@ function byu2016_form_system_theme_settings_alter(&$form, $form_state) {
         '#collapsible' => TRUE,
         '#collapsed' => TRUE,
     );
+        $form['meta']['use_local_libs'] = array(
+            '#type'          => 'checkbox',
+            '#title'         => t('Use Local Libraries'),
+            '#default_value' => theme_get_setting('use_local_libs'),
+            '#description'   => t("Use 'Local Libraries' rather than trying 'Content Delivery Networks'"),
+        );
         $form['meta']['block_robots'] = array(
             '#type'          => 'checkbox',
             '#title'         => t('Block Search Engine Crawlers'),

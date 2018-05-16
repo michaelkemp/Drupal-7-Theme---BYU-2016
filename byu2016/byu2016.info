@@ -1,7 +1,7 @@
 name                        = 2016 BYU Drupal Theme
 description                 = A simple BOOTSTRAP[3.3.7] based theme with hero, sidebars, content, and footer regions
 core                        = 7.x
-version                     = 3.50
+version                     = 3.66
 engine                      = phptemplate
 screenshot                  = screenshot.png
 
@@ -10,6 +10,7 @@ features[]                  = name
 features[]                  = slogan
 
 ; theme setting defaults - Can be changed in theme appearance settings
+settings[use_local_libs]    = 0
 settings[block_robots]      = 0
 settings[main_title]        = "Site Title"
 settings[sub_title]         = "Site Subtitle"
@@ -20,6 +21,7 @@ settings[sub_title_italic]  = 0
 settings[search_use]        = 1
 settings[search_url]        = "/search/node"
 settings[menu_count]        = 6
+settings[site_home]         = ""
 settings[add_login]         = 0
 settings[login_text]        = "::fa-user-circle-o::SIGN IN"
 settings[login_link]        = "/user/login"
@@ -58,13 +60,13 @@ scripts[]                   = js/script.js
 regions[hero]               = Hero Image
 regions[fullwidth]          = Full Width
 regions[help]               = Help
-regions[ten-column]         = Ten Column Area
-regions[content-head]       = Content Head
+regions[ten_column]         = Ten Column Area
+regions[content_head]       = Content Head
 regions[content]            = Content
-regions[content-foot]       = Content Foot
+regions[content_foot]       = Content Foot
 regions[lhs]                = LHS sidebar
 regions[rhs]                = RHS sidebar
-regions[eight-column]       = Eight Column Area
+regions[eight_column]       = Eight Column Area
 regions[footer]             = Footer
 regions[bottom]             = Page bottom
 
